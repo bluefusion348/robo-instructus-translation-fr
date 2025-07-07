@@ -1,0 +1,230 @@
+// Pseudo markup format see ./README.md
+
+#!unlock type{short} id{s-left}
+`robo_left() ` reste sur la même case, tourne à gauche
+
+
+#!unlock type{short} id{s-forward}
+`robo_forward() ` avance (dévie légèrement à droite à cause de la forme triangulaire)
+
+
+#!unlock type{short} id{s-scan}
+`robo_scan() ` scanne la case devant : retourne `-999`: inconnu, `-1`: absent, `1`: normal, `2`: sortie
+
+
+#!unlock type{short} id{s-scan-u1}
+`robo_scan() ` scanne la case devant : retourne `-999`: inconnu, `-1`: absent, `1`: normal, `2`: sortie, `10`: interrupteur
+
+
+#!unlock type{short} id{s-scan-u2}
+`robo_scan() ` scanne la case devant : retourne `-999`: inconnu, `-1`: absent, `1`: normal, `2`: sortie, `10`: interrupteur, `11`: stockage position
+
+
+#!unlock type{short} id{s-scan-u3}
+`robo_scan() ` scanne la case devant : retourne `-999`: inconnu, `-1`: absent, `1`: normal, `2`: sortie, `10`: interrupteur, `11`: stockage position, `12`: stockage direction
+
+
+#!unlock type{short} id{s-scan-u4}
+`robo_scan() ` scanne la case devant : retourne `-999`: inconnu, `-1`: absent, `1`: normal, `2`: sortie, `3`: lanceur, `10`: interrupteur, `11`: stockage position, `12`: stockage direction
+
+
+#!unlock type{short} id{s-use}
+`robo_use() ` utilise la case actuelle, retourne : interrupteur `1`: activé, `0`: désactivé
+
+
+#!unlock type{short} id{s-use-u2}
+`robo_use() ` utilise la case actuelle, retourne : interrupteur `1`: activé, `0`: désactivé, stockage position : identifiant sûr
+
+
+#!unlock type{short} id{s-use-u3}
+`robo_use() ` utilise la case actuelle, retourne : interrupteur `1`: activé, `0`: désactivé, stockage position : identifiant sûr, directions `1`: haut, `2`: droite
+
+
+#!unlock type{short} id{s-use-u4}
+`robo_use() ` utilise la case actuelle, retourne : interrupteur `1`: activé, `0`: désactivé, stockage position : identifiant sûr, directions `1`: haut, `2`: droite, `3`: bas, `4`: gauche
+
+
+#!unlock type{short} id{s-detect-adjacent}
+`robo_detect_adjacent() ` retourne le nombre de cases adjacentes non-absentes, non affecté par les inconnues
+
+
+#!unlock type{short} id{s-location}
+`robo_location() ` retourne l'identifiant de la position actuelle
+
+
+#!unlock type{short} id{s-forward-location}
+`robo_forward_location() ` retourne l'identifiant de la case devant
+
+
+#!unlock type{short} id{s-detect-3}
+`robo_detect_3() ` retourne le nombre de cases non-absentes dans les 3 cases devant (déviant à droite), non affecté par les inconnues
+
+
+#!unlock type{short} id{s-detect-3l}
+`robo_detect_3l() ` retourne le nombre de cases non-absentes dans les 3 cases devant (déviant à gauche), non affecté par les inconnues
+
+
+#!unlock type{short} id{s-probo-left}
+`probo_left() ` reste sur la même case, tourne à gauche
+
+
+#!unlock type{short} id{s-probo-forward}
+`probo_forward() ` avance (tourne légèrement à droite)
+
+
+#!unlock type{short} id{s-probo-scan}
+`probo_scan() ` scanne la case actuelle, retourne `-999`: inconnu, `-1`: absent, `1`: normal, `2`: sortie, `3`: lanceur, `10`: interrupteur, `11`: stockage position, `12`: stockage direction
+
+
+#!unlock type{short} id{s-probo-location}
+`probo_location() ` retourne la position actuelle
+
+
+#!unlock type{short} id{s-probo-use}
+`probo_use() ` utilise la case actuelle, retourne : interrupteur `1`: activé, `0`: désactivé, stockage position : identifiant sûr, directions `1`: haut, `2`: droite, `3`: bas, `4`: gauche
+
+
+#!unlock type{short} id{s-transmit}
+`transmit(subject,data) ` transmet des données sur un sujet
+
+
+#!unlock type{short} id{s-receive}
+`receive(subject) ` consomme et retourne la plus ancienne valeur pour le sujet ou `-20000` si aucune
+
+
+#!unlock type{functions} id{left-forward}
+`robo_left()` Chaque appel fait tourner le robot vers le côté suivant de la case actuelle (sens anti-horaire). Temps d'exécution : $tu{robo_left()} millisecondes Mimas (ms).
+$render{robo_left}
+`robo_forward()` Fait avancer le robot vers la case qu'il affronte. Le robot dévie légèrement vers la droite lors de ce mouvement. Temps d'exécution : $tu{robo_forward()} ms.
+$render{robo_forward}
+
+
+#!unlock type{function} id{scan}
+`robo_scan()` Scan la case devant, retourne une valeur indiquant ses propriétés. `1` = case normale, `2` = sortie, `-1` = aucune case, `-999` = inconnu. Temps d'exécution : $tu{robo_scan()} ms.
+
+$render{robo_scan}
+
+
+#!unlock type{function-update} id{scan-u1}
+`robo_scan()` Scan la case devant, retourne une valeur indiquant ses propriétés. `1` = case normale, `2` : sortie, `-1` : aucune case, `-999` : inconnu, `10` : interrupteur. Temps d'exécution : $tu{robo_scan()} ms.
+
+$render{robo_scan}
+
+
+#!unlock type{function-update} id{scan-u2}
+`robo_scan()` Scan la case devant, retourne une valeur indiquant ses propriétés. `1` = case normale, `2` : sortie, `-1` : aucune case, `-999` : inconnu, `10` : interrupteur, `11` : stockage position. Temps d'exécution : $tu{robo_scan()} ms.
+
+$render{robo_scan}
+
+
+#!unlock type{function-update} id{scan-u3}
+`robo_scan()` Scan la case devant, retourne une valeur indiquant ses propriétés. `1` = case normale, `2` : sortie, `-1` : aucune case, `-999` : inconnu, `10` : interrupteur, `11` : stockage position, `12` : stockage direction. Temps d'exécution : $tu{robo_scan()} ms.
+
+$render{robo_scan}
+
+
+#!unlock type{function-update} id{scan-u4}
+`robo_scan()` Scan la case devant, retourne une valeur indiquant ses propriétés. `1` = case normale, `2` : sortie, `-1` : aucune case, `-999` : inconnu, `3` : case lanceur, `10` : interrupteur, `11` : stockage position, `12` : stockage direction. Temps d'exécution : $tu{robo_scan()} ms.
+
+$render{robo_scan}
+
+
+#!unlock type{function} id{use}
+`robo_use()` Opère sur la case actuelle et retourne des données spécifiques, ou `0` sinon. Temps d'exécution : $tu{robo_use()} ms
+$render{robo_use}
+
+
+#!unlock type{function-update} id{use-u1}
+`robo_use()` Opère sur la case actuelle et retourne des données spécifiques, ou `0` sinon. Temps d'exécution : $tu{robo_use()} ms
+- Interrupteur : Retourne `1` : activé, `0` désactivé. Temps supplémentaire +$tu{robo_use_power} ms
+$render{robo_use}
+
+
+#!unlock type{function-update} id{use-u2}
+`robo_use()` Opère sur la case actuelle et retourne des données spécifiques, ou `0` sinon. Temps d'exécution : $tu{robo_use()} ms
+- Interrupteur : Retourne `1` : activé, `0` désactivé. Temps supplémentaire +$tu{robo_use_power} ms
+- Stockage position : Retourne un identifiant de position sûr. Temps supplémentaire +$tu{robo_use_location} ms
+$render{robo_use-2}
+
+
+#!unlock type{function-update} id{use-u3}
+`robo_use()` Opère sur la case actuelle et retourne des données spécifiques, ou `0` sinon. Temps d'exécution : $tu{robo_use()} ms
+- Interrupteur : Retourne `1` : activé, `0` désactivé. Temps supplémentaire +$tu{robo_use_power} ms
+- Stockage position : Retourne un identifiant de position sûr. Temps supplémentaire +$tu{robo_use_location} ms
+- Stockage direction : Retourne `1` : haut, `2` : droite. Temps supplémentaire +$tu{robo_use_direction} ms
+$render{robo_use-3}
+
+
+#!unlock type{function-update} id{use-u4}
+`robo_use()` Opère sur la case actuelle et retourne des données spécifiques, ou `0` sinon. Temps d'exécution : $tu{robo_use()} ms
+- Interrupteur : Retourne `1` : activé, `0` désactivé. Temps supplémentaire +$tu{robo_use_power} ms
+- Stockage position : Retourne un identifiant de position sûr. Temps supplémentaire +$tu{robo_use_location} ms
+- Stockage direction : Retourne `1` : haut, `2` : droite, `3` : bas, `4` : gauche. Temps supplémentaire +$tu{robo_use_direction} ms
+$render{robo_use-3}
+
+
+#!unlock type{function} id{forward-location}
+`robo_forward_location()` Retourne l'identifiant de la case que le robot affronte. Temps d'exécution : $tu{robo_forward_location()} ms.
+
+$render{robo_forward_location}
+```no_run
+var location = robo_forward_location()  # 8823
+```
+Chaque case dans un niveau a un identifiant numérique distinct (positif et non-nul).
+
+
+#!unlock type{function} id{location}
+`robo_location()` Retourne l'identifiant de la case actuelle. Temps d'exécution : $tu{robo_location()} ms.
+$render{robo_location}
+
+
+#!unlock type{function} id{detect-adjacent}
+`robo_detect_adjacent()` Retourne le nombre total de cases adjacentes à la position actuelle (entre `0` et `3`). Fonctionne correctement même si certaines cases sont inconnues via `robo_scan()`. Temps d'exécution : $tu{robo_detect_adjacent()} ms.
+$render{robo_detect_adjacent}
+```no_run
+var its_safe = robo_detect_adjacent() is 3
+```
+
+
+#!unlock type{function} id{detect-3}
+`robo_detect_3()` Retourne le nombre total de cases dans une ligne droite déviant à droite. Fonctionne même avec des cases inconnues. Temps d'exécution : $tu{robo_detect_3()} ms.
+
+$render{robo_detect_3}
+
+
+#!unlock type{function} id{detect-3l}
+`robo_detect_3l()` Retourne le nombre total de cases dans une ligne droite déviant à gauche. Similaire à `robo_detect_3()`. Temps d'exécution : $tu{robo_detect_3l()} ms.
+
+$render{robo_detect_3l}
+
+
+#!unlock type{functions} id{probo}
+`probo_left()` Tourne à gauche vers le côté suivant de la case actuelle (sens anti-horaire). Temps d'exécution : $tu{probo_left()} ms.
+
+`probo_forward()` Déplace la sonde vers la case qu'elle affronte. Nouvelle orientation déviée vers la droite. Temps d'exécution : $tu{probo_forward()} ms.
+
+`probo_location()` Retourne l'identifiant de la case actuelle. Temps d'exécution : $tu{probo_location()} ms.
+
+`probo_scan()` Scan la case actuelle, retourne ses propriétés. `1` = normale, `2` : sortie, `-1` : absente, `-999` : inconnue, `3` : lanceur, `10` : interrupteur, `11` : stockage position, `12` : stockage direction. Temps d'exécution : $tu{probo_scan()} ms.
+
+$render{probo_scan}
+
+
+#!unlock type{function-update} id{probo-scan-u1}
+`probo_scan()` Scan la case actuelle, retourne ses propriétés. `1` = normale, `2` : sortie, `-1` : absente, `-999` : inconnue, `3` : lanceur nord, `4` : lanceur sud-est, `5` : lanceur sud-ouest, `10` : interrupteur, `11` : stockage position, `12` : stockage direction. Temps d'exécution : $tu{probo_scan()} ms.
+
+$render{probo_scan-2}
+
+
+#!unlock type{functions} id{transmit}
+`transmit(subject,data)` Transmet une valeur `data` associée à un `subject`. Ces transmissions peuvent être reçues par d'autres robots. Temps d'exécution : $tu{transmit(vv)} ms.
+
+`receive(subject)` Reçoit une valeur transmise avec le `subject` correspondant. Les données sont reçues dans l'ordre. Retourne `-20000` si aucune transmission disponible. Temps d'exécution : $tu{receive(v)} ms.
+
+
+#!unlock type{function} id{probo-use}
+`probo_use()` Opère sur la case actuelle et retourne des données spécifiques, ou `0` sinon. Temps d'exécution : $tu{probo_use()} ms
+- Interrupteur : Retourne `1` : activé, `0` désactivé. Temps supplémentaire +$tu{robo_use_power} ms
+- Stockage position : Retourne un identifiant de position sûr. Temps supplémentaire +$tu{robo_use_location} ms
+- Stockage direction : Retourne `1` : haut, `2` : droite, `3` : bas, `4` : gauche. Temps supplémentaire +$tu{robo_use_direction} ms
+$render{probo_use}
