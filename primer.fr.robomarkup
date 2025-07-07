@@ -1,0 +1,384 @@
+// Pseudo markup format see ./README.md
+
+#!unlock type{primer} id{loops}
+# Boucles
+
+`loop` est utilisé pour répéter des commandes. Il répétera indéfiniment les commandes dans sa portée. La portée d'une boucle correspond aux commandes indentées qui suivent une ligne `loop`.
+
+```max_run=11
+robo_forward()  # appelé une fois
+
+loop
+    robo_forward()
+    robo_left()
+
+robo_left()  # jamais appelé
+```
+
+
+#!unlock type{primer} id{comments}
+# Commentaires
+
+Le texte suivant un symbole '`#`' n'est pas exécuté comme code, ce sont simplement des notes explicatives.
+
+```no_run
+robo_left()  # Je commence à comprendre
+```
+
+
+#!unlock type{primer} id{conditionals}
+# Conditions
+
+`if` permet d'exécuter des commandes conditionnellement.
+
+```
+if robo_scan() is 1
+    # une tuile est devant
+    robo_forward()
+
+if robo_scan() is -1
+    # aucune tuile devant
+    robo_left()
+```
+
+
+#!unlock type{primer} id{variables}
+# Variables
+
+Vous pouvez sauvegarder un nombre pour utilisation ultérieure avec `var`.
+
+```
+# sauvegarder un résultat dans la variable 'scan'
+var scan = robo_scan()
+
+# utiliser la variable dans des conditions
+if scan is 1
+    robo_forward()
+if scan is -1
+    robo_left()
+```
+Cela évite d'appeler plusieurs fois une fonction lente pour le même résultat. Permet aussi de conserver un résultat pour plus tard.
+
+#!unlock type{primer} id{conditionals-2}
+# Conditions II
+
+'`if expr`' vérifie simplement si `expr` est non-nul. `0` = faux, toute autre valeur = vrai.
+
+```
+if 0
+    robo_left()  # non exécuté
+
+if 1
+    robo_forward()  # exécuté
+```
+
+#!unlock type{primer} id{is}
+Le mot-clé `is` compare deux valeurs (`1` si identiques, `0` sinon).
+
+`not` convertit `0` en `1` et toute valeur non-nulle en `0`.
+
+`not x is y ` peut s'écrire ` x is not y ` (`1` si valeurs différentes).
+
+```
+var scan = robo_scan()
+
+if scan is 1
+    robo_forward()
+
+if scan is not 1
+    robo_left()
+```
+
+
+#!unlock type{primer} id{comparison}
+# Comparaisons
+
+Outre `is`, on peut utiliser `>`, `>`=, `<`, `<`=.
+
+`    a > b  # a supérieur à b`
+`    a >= b  # a supérieur ou égal à b`
+`    a < b  # a inférieur à b`
+`    a <= b  # a inférieur ou égal à b`
+
+```
+var scan = robo_scan()
+if scan >= 1
+    robo_forward()
+if scan < 0
+    robo_left()
+```
+
+
+#!unlock type{primer} id{conditionals-3}
+# Conditions III
+
+Après un `if`, `else` gère les cas alternatifs.
+
+Le bloc `else` s'exécute si le `if` précédent échoue.
+
+```
+var scan = robo_scan()
+if scan is 1
+    robo_forward()
+else
+    robo_left()
+```
+
+
+#!unlock type{primer} id{else-if}
+
+Plusieurs `else if` permettent de chaîner des conditions exclusives.
+
+Un seul bloc indenté sera exécuté.
+
+```
+var example = 14
+
+if example is 1
+    robo_left()
+    robo_forward()
+else if example <= 3
+    robo_forward()
+else if example > 12
+    robo_forward()
+    robo_forward()
+else
+    robo_left()
+```
+Le bloc `else` final ne s'exécute que si tous les tests précédents échouent.
+
+
+#!unlock type{primer} id{scope}
+# Portée
+
+Le code indenté (après `loop` ou `if`) définit une "portée". Un `var` n'est utilisable que dans sa portée de déclaration.
+```no_run
+if scan is 1
+    var foo = 123
+    if foo is 123  # valide
+        robo_left()
+
+if foo is 123  # échoue ! hors portée
+    robo_left()
+```
+Pour une variable globale, déclarez-la dans une portée externe.
+```no_run
+var foo
+if scan is 1
+    foo = 123
+    if foo is 123  # valide
+        robo_left()
+
+if foo is 123  # valide
+    robo_left()
+```
+Les variables sont supprimées en fin de portée. Dans un `loop`, chaque itération recrée les variables.
+
+
+#!unlock type{primer} id{loops-2}
+# Boucles II
+
+`continue` redémarre une boucle, `break` la quitte.
+
+```
+var count = 0
+loop
+    if count is not 2
+        robo_forward()
+        count += 1
+        continue
+    break
+
+robo_left()
+robo_left()
+```
+
+
+#!unlock type{primer} id{loops-3}
+# Boucles III
+
+Boucle tournant à gauche 5 fois :
+```
+# tourner à gauche 5 fois
+var loop_count = 1
+loop
+    if loop_count > 5
+        break
+    robo_left()
+    loop_count = loop_count + 1
+```
+`while` et `for` simplifient ce type de logique :
+```
+# exécuter tant que la condition est vraie
+var loop_count = 1
+while loop_count <= 5
+    robo_left()
+    loop_count = loop_count + 1
+```
+
+```
+# exécuter pour chaque valeur
+for loop_count in 1,2,3,4,5
+    robo_left()
+```
+
+
+#!unlock type{primer} id{fun}
+# Fonctions
+
+`robo_left()`, `robo_scan()` sont des fonctions. Définies avec `fun`.
+
+```
+# définir une fonction
+fun go_right()
+    robo_left()
+    robo_left()
+
+go_right()  # l'appeler
+go_right()
+```
+
+
+#!unlock type{primer} id{fun-b}
+Les fonctions réduisent la répétition et nomment des opérations complexes.
+
+Elles peuvent s'appeler mutuellement.
+
+```
+var left_count
+fun left_and_count()
+    robo_left()
+    left_count += 1  # incrémenter le compteur
+
+while left_count < 3
+    left_and_count()
+```
+
+
+#!unlock type{primer} id{fun-2}
+# Fonctions II
+
+Les fonctions peuvent prendre des arguments et retourner des valeurs.
+
+```
+fun loneliest_number()
+    1  # dernière expression retournée
+
+fun largest(a, b)
+    if b > a
+        return b  # retour anticipé
+    a
+
+var three = largest(2, 3)
+var one = largest(-5, loneliest_number())
+```
+
+
+#!unlock type{primer} id{bool}
+# Opérateurs booléens
+
+`and` et `or` combinent des valeurs pour des logiques complexes.
+
+`and` retourne `1` si les deux côtés sont non-nuls.
+```
+var scan = robo_scan()
+var adjacent = robo_detect_adjacent()
+if scan < 0 and adjacent is 3
+    robo_forward()
+```
+`or` retourne `1` si au moins un côté est non-nul.
+```
+var scan = robo_scan()
+var safe = scan is 1 or scan is 2
+if safe
+    robo_forward()
+```
+
+
+#!unlock type{primer} id{seq}
+# Séquences
+
+`seq` définit une séquence de valeurs. Accès/modification par index (début à `0`).
+
+```
+seq list[]  # nouvelle seq vide
+seq numbers[] = 11, 22, 33
+
+var first = numbers[0]
+var third = numbers[2]
+numbers[1] = 77  # écraser l'index 1
+if numbers[1] > 40
+    robo_left()
+```
+
+#!unlock type{primer} id{seq-b}
+`add(sv)` ajoute des valeurs en fin de séquence. `remove(sv)` retire par index. `size(s)` retourne la taille.
+
+```
+seq list[]
+
+var size = list[].size()
+list[].add(11)  # ajouter à la fin
+list[].add(33)
+
+var el = list[0]
+var size = list[].size()
+
+list[].remove(0)  # supprimer l'index 0
+var el = list[0]
+var size = list[].size()
+```
+
+#!unlock type{primer} id{loop-seq}
+# Boucles sur séquences
+
+`for` permet d'itérer sur chaque valeur d'une séquence.
+
+```
+seq nums[] = 1, 234, 55, -23
+
+for number in nums[]
+    if number < 100
+        robo_use()
+    else
+        robo_left()
+```
+
+
+#!unlock type{primer} id{fun-3}
+# Fonctions III
+
+Les fonctions peuvent prendre des `seq` en arguments.
+
+```
+# fonction avec argument seq
+fun sum(list[])
+    var sum
+    for n in list[]
+        sum += n
+    sum
+
+seq nums[] = 1, 2, 3
+var total = sum(nums[])
+
+total is 6
+```
+
+
+#!unlock type{primer} id{dot-call}
+Syntaxe alternative pour appeler des fonctions.
+
+```no_run
+fun example(a, b, c, d)
+    # ...
+
+example(2, 3, 4, 5)  # syntaxe normale
+
+2.example(3, 4, 5)  # syntaxe pointée
+```
+Particulièrement utile pour les fonctions intégrées :
+```no_run
+nums[].size() # 3 équivaut à size(nums[])
+
+nums[].sum()  # 6
+```

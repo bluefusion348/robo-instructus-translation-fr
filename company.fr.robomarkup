@@ -1,0 +1,95 @@
+// Pseudo markup format for Robo Instructus containing the company messages
+// received through the game's story. Spoiler alert!
+//
+// `#!company` means the start of a message, the lines following
+// are the message in simplified markdown.
+//
+// Most of the time the first line, starting with '# ' is the subject.
+//
+// Newlines always count, unlike markdown.
+
+
+// intro text, should be exactly 3 lines
+#!company id{c-await}
+Ingénieur de récupération,
+rapport d'arrivée reçu.
+En attente d'instructions.
+
+
+#!company id{c-receiving}
+Réception de communication
+
+
+#!company id{c-ack}
+Accusé de réception
+
+
+#!company id{c-arrive}
+# Re : Rapport d'arrivée pour récupération Iceni
+
+Alors vous avez trouvé un robot ? Mignon, bien qu'un peu primitif. Mais si c'est le meilleur butin que vous puissiez trouver... disons simplement qu'il ne couvrira même pas le coût des rations de soupe nutritive que vous dégustez sans doute en lisant ceci.
+
+J'ai examiné les scans envoyés et je dois dire que je suis quelque peu contrariée. Si je vous voulais rouillés et détritus inutiles, vous seriez resté sur Terre. Iceni était un vaisseau de pointe. Où sont tous les composants, revêtements et ordinateurs ? Où sont les colons ???
+
+La météo de surface doit être plus violente que prévu pour avoir tout déchiqueté ainsi, donc pas étonnant que vous ne trouviez aucun survivant. J'approuve donc votre idée d'utiliser ce robot que vous avez trouvé. Mieux vaut prévenir que guérir - je ne peux pas me permettre de perdre PLUS de personnel ce trimestre.
+
+Connectez-vous donc à votre nouveau meilleur ami là-bas et trouvez moyen de récupérer quelque chose. Parce que quand on ne fait pas de grosses prises, Nigel me regarde de travers. Et si j'ai l'air mauvaise, vous chercherez un nouvel emploi.
+
+Ciao pour maintenant,
+Judith
+
+
+#!company id{c-underground}
+# Re : Rapport de récupération Iceni #6
+
+Enfin de bonnes nouvelles ! D'après vos scans, c'est une entrée souterraine. Ils sont allés sous terre ! Du jamais vu à ma connaissance.
+
+Cela signifie que les colons N'ONT PAS été gelés/emportés par ces vents glacés. Métaux rares, émetteurs... même les gens pourraient encore être là-dessous.
+
+J'ai hâte de le dire à Nigel. Oh... peut-être une affaire Iris. Ou même Martin ! Trouvez quelque chose de juteux et je pourrais déjeuner sur Titan avec le grand M avant la fin de l'année fiscale. Allez l'équipe !
+
+Parfois je vous envie, vous savez. Là-bas, à des milliers de kilomètres de chez vous, sans distractions familiales, amicales ou de loisirs. Complètement seul avec vos pensées. Beaucoup tueraient pour cette paix intérieure que j'imagine que vous ressentez.
+
+Continuez le travail acceptable. Et ne tolérez aucune attitude de ce robot.
+
+Judith
+
+
+#!company id{c-lower}
+# Re : Accès aux niveaux inférieurs
+
+Comme votre rapport l'indique, il est clair que les colons ont construit un habitat fonctionnel là-dessous. Je n'ai pas besoin de vous dire l'importance de cela. C'est TRÈS significatif. Les colons sont probablement encore là-dessous. Vous DEVEZ les atteindre. Le temps presse !
+
+Des équipes de récupération spécialisées sont déjà en route - nos meilleurs éléments. Mais ils mettront du temps à arriver. Utilisez le robot pour leur tracer une voie.
+
+Toute la direction est avec vous sur ce coup. Martin, le Comité DRO, Grant et Jan, Nigel, Barrington et le groupe d'approvisionnement, Niamh, Liam et Robin. Même Pamela. Tout le monde. Et nous savons tous que vous avez ce qu'il faut pour ramener ces colons.
+
+Judith
+
+
+#!company id{c-final}
+# Rapport final de récupération Iceni
+
+Attentes initiales : quantité modérée de débris de vaisseau et résidus minéraux de faible valeur. Cependant, l'ingénieur sur place a découvert les restes de 21% de l'équipage préservés dans une chambre forte près du noyau planétaire.
+
+Résultat : 207 cadavres de colons bien conservés. L'analyse génétique révèle de nombreuses successions non réclamées de valeur significative. Selon la Loi sur les Successions Extraplanétaires, la compagnie détient désormais des droits solides. Détail en Galacto-drachmes (GD) :
+
+ - 207 restes humains. Successions associées : 878 000 000 000,00 GD
+ - 72 834 841 tonnes de céracrete (léger sol) @ 10,00 GD/tonne
+ - 53 552 panneaux ferrotitanium @ 7,00 GD/panneau
+ - 98 tonnes d'améthyste cybernétique @ 29,00 GD/tonne
+ - 10 buggies éclaireurs. Valeur totale 525,00 GD
+ - Effets personnels & métaux précieux. Fonte : 2 560,99 GD
+ - 1 cœur énergétique (brûlé au plasma) 10 000,00 GD
+ - Automates délabrés. Valeur ferraille : 80,00 GD
+ - 1 robot & sonde fonctionnels. Valeur ferraille : 4,00 GD
+
+
+#!company id{c-promotion}
+# Saluez le nouveau Directeur de la Récupération !
+
+Excellent travail sur le projet Iceni. Heureuse de votre contribution à mon opération de récupération la plus réussie à ce jour. Comme vous l'avez peut-être entendu, en reconnaissance de mes résultats, j'ai l'honneur d'accepter le poste de Directrice de la Récupération pour la Bordure Extérieure (intérim).
+
+N'allez pas croire que j'oublie votre contribution ! Vos jours comme Ingénieur Junior de Récupération sont terminés. Par le pouvoir qui m'est conféré en tant que DR-BE(I), je vous élève au rang d'Ingénieur de Récupération. Félicitations !
+
+Judith

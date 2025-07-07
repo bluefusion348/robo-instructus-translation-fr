@@ -1,0 +1,252 @@
+// Pseudo markup format for Robo Instructus containing the company messages
+// received through the game's story. Spoiler alert!
+//
+// `#!unlock` means the start of a message, the lines following
+// are the message in simplified markdown.
+//
+// Newlines always count, unlike markdown.
+//
+// Text like `$render{some-id}` indicate where to render an "image" in-game.
+// These shouldn't be modified.
+//
+// Lines beginning with ` > ` are reply-bodies the white-space usage
+// should not be modified.
+
+
+#!unlock id{primer-intro}
+Je mets à disposition le Guide d'Ingénierie que j'ai préparé à la hâte pour accompagner les ateliers post-assemblage-17.
+
+Décrivant mon langage procédural et techniques d'automatisation en termes simples, ce guide contient tout le nécessaire pour contrôler efficacement nos automates. Cependant, je crains que les descriptions ne soient insuffisantes et trop concises par endroits. Je ne suis pas un enseignant-né. Consultez votre représentant d'atelier et votre groupe local si vous êtes en difficulté. Contactez-moi et d'autres groupes si possible pour des conseils complémentaires.
+
+Quelle que soit votre spécialité, je crois qu'avec une étude attentive, une application rigoureuse du guide et une détermination sans faille, nous pourrons tous contribuer à la survie de la colonie.
+
+- Dr A. Bartram
+
+
+#!unlock id{pathfinders}
+Mes chers éclaireurs,
+
+Félicitations ! Nous sommes arrivés (sains et saufs !) dans notre nouvelle demeure : Bright. Comme certains ont pu l'entendre, les conditions sur Bright diffèrent considérablement des analyses spectroscopiques pré-mission.
+
+J'ai entendu des termes comme "inhabitable" et "boule de mort glacée", mais que signifie vraiment "inhabitable" ? Je préfère "inhabitée". Et devinez quoi ? Cela signifie que la planète est entièrement à nous.
+
+Je sais que chacun d'entre vous est un pionnier dans l'âme. Plutôt que de voir l'adversité, voyons l'opportunité. Toute l'énergie prévue pour terraformer cette planète en paradis luxuriant sera redirigée vers les systèmes de chauffage désormais critiques ! Nos réserves devaient nous soutenir durant les longues journées de labeur pour construire notre colonie idéale. Désormais, avec un régime de travail allégé, ces réserves dureront des semaines de plus !
+
+Ce que je veux dire : faisons une pause. Réfléchissons. J'ai été parfaitement clair depuis le Jour 1 : il y aura des défis. Mais aucun défi ne peut résister à la puissance de l'esprit humain. Je sais que nous avons tous l'étoffe de "Bright".
+
+À l'heure où je parle, Alice Bartram et son équipe d'ingénieurs, avec mon soutien, finalisent un nouveau plan. Attendez-vous à des nouvelles passionnantes très bientôt.
+
+Comme toujours, mes assistants ont une politique de porte ouverte. Passez pendant les heures de bureau* et discutons !
+
+Jonathan Frinton-Belmont
+Gouverneur désigné (intérimaire)
+
+*Voir le message annexé sur la réduction des heures de bureau pour économie d'énergie
+
+
+#!unlock id{scans-unreliable}
+James, les scans ne sont pas fiables à 100%. Certaines zones laissent des doutes sur la présence réelle de métal. Nous ignorons même pourquoi. À certains endroits, il devient difficile de déplacer les robots.
+
+Les scans à `-999` signifient que nous ignorons ce qui se trouve devant nous. Je recommande la prudence : évitez-les si possible. Je me fais déjà sermonner à cause des chutes. Nous devrons probablement abandonner la récupération dans les niveaux supérieurs.
+
+ > Hé Jacob, tu sais quoi faire de [ceci] ? J'ai perdu un autre travailleur.
+ > robo_scan() est défectueux ou quoi ? Et moi qui croyais commencer à comprendre.
+ >
+ > Hackett
+$render{scans-unreliable}
+
+
+#!unlock id{power}
+L'Iceni deviendra trop dangereux à approcher. Nous devrons effectuer les dernières étapes entièrement via les robots, y compris l'arrêt des voies de transport. L'équipe de Lillian installera des interrupteurs dans les niveaux inférieurs selon les spécifications du Dr Bartram, permettant aux robots de couper le courant.
+
+Une fois la fonction `robo_use()` identifiée, vos robots pourront appeler cette fonction pour actionner les interrupteurs. Mode d'emploi (Bartram) : Appeler `robo_use()` sur un interrupteur pour le basculer. Retourne `1` si activé, `0` si désactivé.
+
+Ces interrupteurs ont le code `robo_scan()` `10`. La fonction d'usage inclura "une documentation suffisante". Je vous vois déjà lever les yeux au ciel, mais souvenez-vous qu'elle est aussi sous pression.
+
+Jacob
+$render{power}
+
+
+#!unlock id{pause}
+James, tu peux utiliser la fonction "pause". Il m'a fallu du temps, mais elle est utile. Je vous montrerai lors de la prochaine réunion d'équipe.
+
+- Aaron Kellner
+$render{pause}
+
+ > Je me souviens que la docteure arrêtait le code et avançait à son rythme. Comment faisait-elle ? Tout va trop vite, je n'arrive pas à suivre.
+ >
+ > Hackett
+
+
+#!unlock id{data-store}
+Comme vous le savez, la fiabilité des scans se dégrade. L'équipe souterraine évoque des causes environnementales. Quoi qu'il en soit, nous devons continuer. Si la docteure répare les scanners, nous reviendrons aux niveaux supérieurs. Pour l'instant, concentrons-nous sur les sections 0-14 où les robots se déplacent encore correctement.
+
+Nous avons installé des "banques de données" pour identifier les sols stables quand `robo_scan()` échoue. Mode d'emploi (Bartram) : Appeler `robo_use()` sur une banque pour obtenir un identifiant de position sûre (traversable par les robots).
+
+Ces banques ont le code `robo_scan()` `11`.
+
+Jacob
+$render{data-store}
+
+
+#!unlock id{i-have-a-plan}
+Jonathan,
+
+Les recherches en surface n'ont rien donné.
+J'ai un plan. Nous devrons dévier la puissance de réserve pour une étude géologique complète.
+
+- Alice
+
+ > Docteure,
+ >
+ > Toutes les équipes sont revenues. Les buggies ont couvert 100km autour du site d'atterrissage. Juste comme nous le craignions. Plaines glacées. Vents forts. Aucun signe de vie. Température constamment inconfortable.
+ >
+ > Retour maintenant. Je suis désolé.
+ >
+ > Jacob
+ > Équipe alpha de recherche
+
+
+#!unlock id{pause-fun}
+Hé Lillian, je viens d'apprendre par la docteure qu'on peut mettre en pause l'exécution via le code, sans bouton.
+
+`pause()`
+
+Cela nous aurait vraiment aidés quand nous traquions ce bug d'orientation !
+
+- Aaron
+
+
+#!unlock id{mushrooms-again}
+Alice,
+
+Je reviens de la fabrique. Si j'avais su qu'on produirait ces robots en masse, j'aurais omis les fioritures. 11 autres aujourd'hui ! Comment va ta légion d'agriculteurs-codeurs ? Tu aimes enseigner ?
+
+Crois-tu que notre robot, notre petit projet du voyage, sauvera la colonie ?
+
+Champignons encore ce soir. J'ai un bon pressentiment pour cette fournée. Je les laverai correctement cette fois - cette neuro-paralysie était horrible.
+
+À ce soir,
+Jack
+P.s. Des progrès sur la conception de la sonde ?
+
+
+#!unlock id{direction}
+Info : L'équipe 3 compense aussi les scans peu fiables.
+
+ > Jacob, nous développons une autre solution de contournement pour les scans défectueux.
+ > Nous ajoutons des données directionnelles pointant vers les sols stables. Souvent superflues, mais utiles si les scans empirent.
+ > Aaron a des exemples de code qu'il nettoiera et partagera à toutes les équipes. En bref :
+ >
+ > Les banques directionnelles contiennent des directions relatives à leur case. Identifiable via le code robo_scan() 12.
+ $render{direction}
+ > robo_use() directions possibles 1: haut, 2: droite,
+
+
+#!unlock id{direction-2}
+Désolé, j'ai tronqué la fin du message de Lillian. Voici la version complète.
+
+ > Les banques directionnelles contiennent des directions relatives à leur case. Identifiable via le code robo_scan() 12.
+ $render{direction}
+ > robo_use() directions possibles 1: haut, 2: droite, 3: bas, 4: gauche.
+ >
+ > - Lillian Westerman
+
+
+#!unlock id{orientation}
+James, tu as raison : les banques ignorent l'orientation du robot. Elles sont simples, mais faciles à installer.
+
+Vous ne suivez pas l'orientation du robot ? Nous le faisions après chaque forward/left dans l'équipe 3, je croyais que c'était généralisé. Désolé ! Je ne peux pas consulter le code maintenant, mais je t'expliquerai lors de la prochaine réunion.
+
+- Aaron Kellner
+
+ > Aaron, je rate quelque chose avec ces banques directionnelles ? Que veux-tu dire par "haut"/"droite" ?! Inutile ! La banque ignore ma direction, ça ne fonctionne pas.
+ >
+ > Hackett
+
+
+#!unlock id{hot-air}
+Alice, tu as vu son dernier message ? Ce type a assez de vent pour alimenter toute la colonie !
+
+Jack
+
+ > Amis !
+ >
+ > Nous lançons la phase 2 du nouveau plan. Beaucoup ont déménagé dans nos nouveaux logements du niveau B3. Pour ceux en attente de transfert, nous vous attendons avec impatience au cœur rocheux de Bright. Vous trouverez qu'il y fait relativement chaud !
+ >
+ > Notre armée de robots et d'ingénieurs fraîchement formés creuse sans relâche pour ouvrir de nouveaux niveaux et sources géothermiques. Et je ne me reposerai pas avant que nous soyons tous en sécurité sous terre.
+ >
+ > Merci à Mary et aux xénobotanistes pour leur nouvelle espèce de champignon presque totalement comestible. Préparez vos recettes !
+ >
+ > Jonathan Frinton-Belmont
+ > Gouverneur désigné
+
+
+#!unlock id{fatality-report}
+Je suis désolé Alice. Je sais que vous étiez proches. Si je peux aider, faites-le savoir à mon bureau.
+
+Jonathan Frinton-Belmont
+Gouverneur
+
+ > Rapport de décès #89d-b11
+ > Lieu : Section S7, sous-section 5L
+ > Catégorie : excavation
+ > Chef d'équipe : Jack Sheppard
+ >
+ > À 26:05, l'équipe Gamma d'excavation fut piégée dans une nouvelle galerie (section 5). Un effondrement supplémentaire survint avant le sauvetage, causant la mort de tous les membres. Cause suspectée : défaillance des supports structurels due à la fatigue métallique.
+ >
+ > Liste des victimes :
+ > - Jack Sheppard
+ > - Alejandro Lopez
+ > - Myah Lawrence
+ > - Aaron Kellner
+
+
+#!unlock id{launch}
+J'ai peut-être une solution pour les fissures des niveaux inférieurs, causées par la roche poreuse ou le sur-creusage des robots.
+
+J'ai installé des plates-formes de lancement propulsant les robots par-dessus les crevasses. Elles se chargent quand quelque chose se pose dessus. Si un robot reste assez longtemps, il déclenche le lancement. Je leur ai attribué le code `robo_scan()` `3`.
+
+Honnêtement, elles sont complexes à utiliser, mais fonctionnelles. La docteure aurait sans doute conçu quelque chose de plus élégant, mais c'est mieux que rien.
+
+- Anita
+$render{launch}
+
+
+#!unlock id{falling-apart}
+Jacob, que faire pour la docteure ? Tout s'écroule. Pourquoi ne répond-elle pas ? Nous avons tous perdu des proches, mais cela fait 17 cycles depuis la mort de Jack. Elle s'est enfermée pour travailler sur un projet (nous supposons), mais nous avons besoin d'elle.
+
+Hackett
+
+
+#!unlock id{distress}
+Quand est-ce que quelqu'un est remonté en surface ? Pouvons-nous encore y accéder ? Nous creusons pour trouver des matériaux et de l'énergie géothermique, mais nous nous éloignons de la surface. Nous ignorons même si le signal de détresse est toujours actif. Quitter Bright n'est-il pas l'objectif ?
+
+Hackett
+
+
+#!unlock id{proto-probe}
+J'ai passé beaucoup de temps cloîtrée dans mon laboratoire souterrain. Il est devenu impossible d'ignorer l'évidence : nous ne survivrons pas sur Bright. Le sauvetage est notre seul espoir ténu.
+
+Comme auparavant, mon seul réconfort est de travailler sur quelque chose d'utile. J'ai concentré tous mes efforts sur un nouveau robot complémentant nos modèles actuels. Cette sonde aérienne peut traverser les pires terrains de notre planète peu fiable. Conçue pour s'emboîter dans la cavité de stockage des robots série 7+, elle communiquera avec sa "mère" via de nouvelles fonctions logicielles.
+
+J'ai consacré beaucoup de temps à fiabiliser les communications. Je pense y être parvenue, malgré le manque de temps pour tester. Un duo robot-sonde sera une force redoutable.
+
+Cependant, je ne verrai pas ce spectacle. Je ne sortirai plus de ce laboratoire. Au moins, je n'aurai plus à manger de champignons.
+
+J'ai envoyé le seul prototype à l'échafaudage de l'Iceni pour trouver un robot compatible. Si un sauvetage arrive, j'espère que ces outils aideront à sauver ceux restés sous la glace.
+
+- Dr A. Bartram
+
+
+#!unlock id{vault}
+Chers Amis,
+
+Aujourd'hui commence une nouvelle étape de notre vie sur Bright. Comme vous le savez, les circonstances nous obligent à reconsidérer notre approche. À cause d'erreurs algorithmiques, de plus en plus de robots creusent hors contrôle à travers nos habitats. Résultat : les quartiers d'habitation de presque tous les niveaux sont inhabitables, risquant l'effondrement immédiat, et violent les réglementations de Santé et Sécurité (Section 15, alinéa 10).
+
+L'Équipe de Direction (TLT) a travaillé sur une solution. Nous avons créé une chambre forte scellée au cœur de Bright où nous attendrons les secours. En fait, L'Équipe de Direction (TLT) y est déjà installée. Bonne nouvelle : suite aux récents accidents (rapports en attente), les problèmes d'espace et de nourriture sont résolus. La chambre forte a de la place pour tous, avec lits et toilettes partagés entre six personnes. Toutes les opérations minières robotisées sont suspendues indéfiniment - adieu le trajet quotidien !
+
+L'Équipe de Direction (TLT) vous invite à rejoindre la chambre forte dans les 4 cycles. Passé ce délai, la porte sera scellée en attendant les secours. N'en doutez pas ! Quelles que soient les rumeurs, les navires de sauvetage sont en route.
+
+Jonathan Frinton-Belmont
+Gouverneur Général
